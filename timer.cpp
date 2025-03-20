@@ -1,8 +1,4 @@
-// Author: Eli Jacobson
-// Net ID:  jacobsone
-// Date:  10/23/23
-// Assignment:     Lab 3
-//----------------------------------------------------------------------//
+
 
 #include "timer.h"
 //You many use any timer you wish for the microsecond delay and the millisecond delay

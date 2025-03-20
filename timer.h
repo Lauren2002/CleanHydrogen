@@ -1,8 +1,4 @@
-// Author:   Ethan Burnett Nguyen      
-// Net ID:   eburnettnguyen
-// Date:     11/6/2023   
-// Assignment:     Lab 3
-//----------------------------------------------------------------------//
+
 
 #ifndef TIMER_H
 #define TIMER_H

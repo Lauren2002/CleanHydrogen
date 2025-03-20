@@ -1,10 +1,3 @@
-// Author: Dale Hetherington
-// Net ID:
-// Date:
-// Assignment:
-//
-// Description:  Use ADC7 for reading in analog voltage value
-//----------------------------------------------------------------------//
 
 #include "hsensor.h"
 #include <avr/io.h>

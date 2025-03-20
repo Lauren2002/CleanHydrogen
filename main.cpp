@@ -2,6 +2,8 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "hsensor.h"
+#include "timer.h"
+#include "h2storage.h"
 
 #define PRESSED 1
 #define NOT_PRESSED 0
@@ -42,6 +44,9 @@ int main(){
 
   //Initialize software functionality
   sei(); //initalizes global intturupts for buttons
+  initTimer0(); //initalizes timer 0 of AtMega used for Milisecond delay
+  initTimer1(); // initalizes timer 1 of AtMega, used for Microsecond delay
+  initADC7(); //initalizes Analog to Digital conversion pin 7, for h2 sesnor 1
 
   //initalize variables
     /*Flags will chagne value when a problem is detected, value of 1 = check sesnor 
@@ -94,7 +99,9 @@ int main(){
       
       case(h2sensor_state):
         // read both h2 sensors. Could make it idivual per sensor later
-        //insert h2 reading
+        h2sensorVal1 = getHsensor1();
+        //ADD second sensor at some point
+
         //originally was: if((tempVal1 || tempVal2) > tempLimit), but the left side will evaulate to true (1) or false (0) and that will mess up the intended logic of comparing to the limit
         if (check_sensor(h2sensorVal1, h2Limit, h2sensorFlag) || check_sensor(h2sensorVal2, h2Limit, h2sensorFlag)) {
           current_state = emergency_state; //temp sensor is flagged twice 
@@ -110,7 +117,7 @@ int main(){
 
       case(h2storage_state):
         //looks to see if it has a current which means the h2 storage is getting full
-        //insert checking logic/function to change flag
+        checkH2storageLevel(h2storageFlag);
 
         if(h2storageFlag == 1){
           //insert shorter delay
