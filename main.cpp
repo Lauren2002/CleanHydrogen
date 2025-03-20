@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include "hsensor.h"
 
 #define PRESSED 1
 #define NOT_PRESSED 0
